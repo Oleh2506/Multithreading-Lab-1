@@ -1,6 +1,6 @@
 package main.java.counter;
 
-public class NaiveCounter implements Counter {
+public class AsyncCounter implements Counter {
     private int count = 0;
 
     @Override
