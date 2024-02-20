@@ -1,35 +1,26 @@
 package main.java.counter;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class BlockObjectCounter implements Counter {
     private int count = 0;
-    private boolean dec = false;
+    private final Lock lock = new ReentrantLock();
 
     @Override
     public int getCount() { return this.count; }
 
     @Override
     public synchronized void increment() {
-        while (dec) {
-            try {
-                wait();
-            } catch (InterruptedException ignored) {
-            }
-        }
-        dec = true;
+        lock.lock();
         count++;
-        notifyAll();
+        lock.unlock();
     }
 
     @Override
     public synchronized void decrement() {
-        while (!dec) {
-            try {
-                wait();
-            } catch (InterruptedException ignored) {
-            }
-        }
-        dec = false;
+        lock.lock();
         count--;
-        notifyAll();
+        lock.unlock();
     }
 }
