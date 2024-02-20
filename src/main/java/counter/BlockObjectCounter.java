@@ -11,14 +11,14 @@ public class BlockObjectCounter implements Counter {
     public int getCount() { return this.count; }
 
     @Override
-    public synchronized void increment() {
+    public void increment() {
         lock.lock();
         count++;
         lock.unlock();
     }
 
     @Override
-    public synchronized void decrement() {
+    public void decrement() {
         lock.lock();
         count--;
         lock.unlock();
