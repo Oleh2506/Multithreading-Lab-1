@@ -2,18 +2,18 @@ package main.java.counter;
 
 public class SyncBlockCounter implements Counter {
     private int count;
-    private final Object monitor = new Object();
+    private final Object sync = new Object();
 
     @Override
     public void increment() {
-        synchronized (monitor) {
+        synchronized (sync) {
             this.count++;
         }
     }
 
     @Override
     public void decrement() {
-        synchronized (monitor) {
+        synchronized (sync) {
             this.count--;
         }
     }
