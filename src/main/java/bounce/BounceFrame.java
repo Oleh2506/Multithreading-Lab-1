@@ -25,6 +25,11 @@ public class BounceFrame extends JFrame {
         JButton buttonTestJoin = new JButton("Test Join");
 
         buttonTestPriority.addActionListener(e -> {
+            Ball redBall = new Ball(canvas, Color.red, 30, 50);
+            BallThread redThread = new BallThread(redBall);
+            redThread.setPriority(Thread.MAX_PRIORITY);
+            redThread.start();
+
             for (int i = 0; i < 100; i++) {
                 Ball blueBall = new Ball(canvas, Color.blue, 30, 50);
                 canvas.addBall(blueBall);
@@ -33,11 +38,7 @@ public class BounceFrame extends JFrame {
                 blueThread.start();
             }
 
-            Ball redBall = new Ball(canvas, Color.red, 30, 50);
             canvas.addBall(redBall);
-            BallThread redThread = new BallThread(redBall);
-            redThread.setPriority(Thread.MAX_PRIORITY);
-            redThread.start();
         });
 
         buttonSpawnBlueBall.addActionListener(e -> {
