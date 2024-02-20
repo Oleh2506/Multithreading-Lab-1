@@ -22,6 +22,6 @@ public class Pocket {
     public boolean isBallPotted(int x, int y, int r) {
         double distance = Point2D.distance(x + r, y + r,
                 this.x + RADIUS, this.y + RADIUS);
-        return distance <= r * 2.5;
+        return distance <= r + RADIUS;
     }
 }
