@@ -2,7 +2,7 @@ package main.java.counter;
 
 public class CounterTester {
     public static void main(String[] args) {
-        testCounter("Non-Sync Counter: ", new NaiveCounter());
+        testCounter("Non-Sync Counter: ", new AsyncCounter());
         testCounter("Sync-Block Counter: ", new SyncBlockCounter());
         testCounter("Sync-Method Counter: ", new SyncMethodCounter());
         testCounter("Block Object Counter: ", new BlockObjectCounter());
