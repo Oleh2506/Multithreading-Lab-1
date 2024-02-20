@@ -7,22 +7,21 @@ import java.awt.geom.Point2D;
 public class Pocket {
     private final int x;
     private final int y;
-    private final int radius;
+    public static final int RADIUS = 20;
 
-    public Pocket(int x, int y, int radius) {
+    public Pocket(int x, int y) {
         this.x = x;
         this.y = y;
-        this.radius = radius;
     }
 
     public void draw(Graphics2D g2) {
         g2.setColor(Color.black);
-        g2.fill(new Ellipse2D.Double(x, y, radius*2, radius*2));
+        g2.fill(new Ellipse2D.Double(x, y, RADIUS*2, RADIUS*2));
     }
 
     public boolean isBallPotted(int x, int y, int r) {
         double distance = Point2D.distance(x + r, y + r,
-                this.x + this.radius, this.y + this.radius);
+                this.x + RADIUS, this.y + RADIUS);
         return distance <= r * 2.5;
     }
 }

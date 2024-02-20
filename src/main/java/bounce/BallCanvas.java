@@ -47,12 +47,12 @@ public class BallCanvas extends JPanel {
 
     private void generatePockets() {
         pockets.clear();
-        pockets.add(new Pocket(-20, -20, 20));
-        pockets.add(new Pocket(-20, this.getHeight() - 20, 20));
-        pockets.add(new Pocket(this.getWidth() - 20, -20, 20));
-        pockets.add(new Pocket(this.getWidth() - 20, this.getHeight() - 20, 20));
-        pockets.add(new Pocket(this.getWidth() / 2 - 20, -20, 20));
-        pockets.add(new Pocket(this.getWidth() / 2 - 20, this.getHeight() - 20, 20));
+        pockets.add(new Pocket(-Pocket.RADIUS, -Pocket.RADIUS));
+        pockets.add(new Pocket(-Pocket.RADIUS, this.getHeight() - Pocket.RADIUS));
+        pockets.add(new Pocket(this.getWidth() - Pocket.RADIUS, -Pocket.RADIUS));
+        pockets.add(new Pocket(this.getWidth() - Pocket.RADIUS, this.getHeight() - Pocket.RADIUS));
+        pockets.add(new Pocket(this.getWidth() / 2 - Pocket.RADIUS, -Pocket.RADIUS));
+        pockets.add(new Pocket(this.getWidth() / 2 - Pocket.RADIUS, this.getHeight() - Pocket.RADIUS));
     }
 }
 
